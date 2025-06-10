@@ -77,6 +77,19 @@ public class Practice {
         anonymousTest.test1();
         System.out.println("return: " + anonymousTest.test2(5));
 
+
+
+        //////////////// Constructor test  -> if constructor created with parameter, then default constructor
+        // i.e. constructor with no argument will not exist
+        ConstructorTest test1 = new ConstructorTest("ab");
+        test1.setA(2);
+
+        ConstructorTest test3 = new ConstructorTest();
+        test3.setA(3);
+        test3.setB("abc");
+
+        System.out.println(test1.getA() + " " + test1.getB() + " " + test3.getA() + " " + test3.getB());
+
     }
 }
 
