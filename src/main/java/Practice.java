@@ -80,10 +80,11 @@ public class Practice {
 
 
         //////////////// Constructor test  -> if constructor created with parameter, then default constructor
-        // i.e. constructor with no argument will not exist
+        // i.e. constructor with no argument will not exist if not declared
         ConstructorTest test1 = new ConstructorTest("ab");
         test1.setA(2);
 
+        //Default constructor can be added manually overloading other parameterized constructor
         ConstructorTest test3 = new ConstructorTest();
         test3.setA(3);
         test3.setB("abc");
