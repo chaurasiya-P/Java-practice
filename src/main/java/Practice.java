@@ -1,5 +1,8 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Practice {
     public static void main(String[] args) {
         System.out.println("Starting git testing");
@@ -90,6 +93,44 @@ public class Practice {
         test3.setB("abc");
 
         System.out.println(test1.getA() + " " + test1.getB() + " " + test3.getA() + " " + test3.getB());
+
+
+
+        //////////////////Functional Interface test
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(4);
+        list.add(6);
+        list.add(3);
+        list.add(6);
+        list.add(6);
+        list.add(6);
+        list.add(3);
+        list.add(6);
+        list.add(6);
+        list.add(6);
+        list.add(7);
+
+        FunctionIFaceTest it = (ls) -> {
+            int c=0;
+            int ans=0;
+            for(int i=0;i<ls.size();i++) {
+                if(c==0) {
+                    ans=ls.get(i);
+                    c++;
+                } else {
+                    if(ls.get(i)==ans) c++;
+                    else c--;
+                }
+            }
+            c=0;
+            for(int i=0;i<ls.size();i++) {
+                if(ls.get(i) == ans) c++;
+            }
+            if(c >= (ls.size()/2)+1) return ans;
+            return -1;
+        };
+        System.out.println("Major element: " + it.major(list));
 
     }
 }
