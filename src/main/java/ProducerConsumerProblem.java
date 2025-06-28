@@ -20,7 +20,6 @@ public class ProducerConsumerProblem {
 //        }
         //Thread.sleep(7000);
         while(list.size()==5) {
-            notify();
             wait();
         }
         int t = new Random().nextInt()%25;
@@ -41,7 +40,6 @@ public class ProducerConsumerProblem {
 //        }
         //System.out.println(Thread.currentThread().getName());
         while(list.size()==0) {
-            notify();
             wait();
         }
         int t = list.get(list.size()-1);
