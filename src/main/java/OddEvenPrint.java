@@ -5,7 +5,7 @@ public class OddEvenPrint {
     int count = 1;
 
     private synchronized void printEven() throws InterruptedException {
-        if(count%2!=0) {
+        while(count%2!=0) {
             wait();
         }
         System.out.println(count);
@@ -13,7 +13,7 @@ public class OddEvenPrint {
         notify();
     }
     private synchronized void printOdd() throws InterruptedException {
-        if(count%2==0) {
+        while(count%2==0) {
             wait();
         }
         System.out.println(count);

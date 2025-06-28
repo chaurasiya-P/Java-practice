@@ -5,7 +5,7 @@ public class OneTwoThreePrint {
     int count = 1;
 
     private synchronized void onePrint() throws InterruptedException {
-        if(count%3!=1) {
+        while (count%3!=1) {
             wait();
         }
         System.out.println(count);
@@ -14,7 +14,7 @@ public class OneTwoThreePrint {
     }
 
     private synchronized void twoPrint() throws InterruptedException {
-        if(count%3!=2) {
+        while (count%3!=2) {
             wait();
         }
         System.out.println(count);
@@ -23,7 +23,7 @@ public class OneTwoThreePrint {
     }
 
     private synchronized void threePrint() throws InterruptedException {
-        if(count%3!=0) {
+        while (count%3!=0) {
             wait();
         }
         System.out.println(count);
@@ -35,10 +35,10 @@ public class OneTwoThreePrint {
         OneTwoThreePrint oneTwoThreePrint = new OneTwoThreePrint();
 
         Thread one = new Thread(() -> {
-            for(int i=0;i<5;i++) {
+            for(int i=0;i<50;i++) {
                 try {
                     oneTwoThreePrint.onePrint();
-                    Thread.sleep(500);
+//                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -46,10 +46,10 @@ public class OneTwoThreePrint {
         });
 
         Thread two = new Thread(() -> {
-            for(int i=0;i<5;i++) {
+            for(int i=0;i<50;i++) {
                 try {
                     oneTwoThreePrint.twoPrint();
-                    Thread.sleep(500);
+//                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -57,10 +57,10 @@ public class OneTwoThreePrint {
         });
 
         Thread three = new Thread(() -> {
-            for(int i=0;i<5;i++) {
+            for(int i=0;i<50;i++) {
                 try {
                     oneTwoThreePrint.threePrint();
-                    Thread.sleep(500);
+//                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
