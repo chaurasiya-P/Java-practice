@@ -20,6 +20,7 @@ public class ProducerConsumerProblem {
 //        }
         //Thread.sleep(7000);
         while(list.size()==5) {
+            notify();
             wait();
         }
         int t = new Random().nextInt()%25;
@@ -38,8 +39,9 @@ public class ProducerConsumerProblem {
 //            System.out.println("Consumed: " + t);
 //            notify();
 //        }
-        System.out.println(Thread.currentThread().getName());
+        //System.out.println(Thread.currentThread().getName());
         while(list.size()==0) {
+            notify();
             wait();
         }
         int t = list.get(list.size()-1);
@@ -55,7 +57,7 @@ public class ProducerConsumerProblem {
             try {
                 for(int i=0;i<10;i++) {
                     producerConsumerProblem.producer();
-                    Thread.sleep(200);
+                    Thread.sleep(500);
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -67,7 +69,7 @@ public class ProducerConsumerProblem {
                 //Thread.sleep(2000);
                 for(int i=0;i<10;i++) {
                     producerConsumerProblem.consumer();
-                    Thread.sleep(500);
+                    Thread.sleep(3000);
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
