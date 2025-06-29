@@ -3,7 +3,7 @@ package main.java;
 
 //https://www.geeksforgeeks.org/problems/split-array-largest-sum--141634/1
 public class SplitArray {
-    
+
     private static boolean fun(int[] a, int k, int m) {
         int s=0;
         int c=0;
