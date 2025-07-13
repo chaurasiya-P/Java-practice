@@ -39,11 +39,15 @@ public class SingleThreadPool {
 
         executorService.submit(r);    //--> It is also fine for runnable ->  executorService.execute(r);
 
+        executorService.submit(c);
+
         try {
             System.out.println(executorService.submit(c).get());
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
+        //If we comment above try-catch block, then main thread will terminate earlier
+        //As we are using get() for future, so main thread is waiting for result, so main thread print comes into last
         System.out.println("Main thread before shutdown");
         executorService.shutdown();
         System.out.println("Main thread after shutdown");
